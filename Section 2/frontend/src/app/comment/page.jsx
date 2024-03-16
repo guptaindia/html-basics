@@ -17,13 +17,26 @@ const Comments = () => {
     //console.log("delete clicked for", task);
     settaskArray(taskArray.filter((todo) => todo !== task));
   }
-  const [like, setlike] = useState(0),
-    [islike, setislike] = useState(false)
-    function handlelike(task) {
-      console.log('clicked like for', task);
-      setislike(true);
-      console.log(like);
+    function MyButton() {
+      const [count, setCount] = useState(0);
+    
+      function handleClick() {
+        if(count === 1){
+          setCount(count - 1);
+        }
+        else{
+          setCount(count + 1);
+        }
+      }
+    
+      return (
+        <button onClick={handleClick} className='btn btn-primary'>
+          like {count} 
+        </button>
+      )
     }
+   
+  
 
 
   return (
@@ -37,8 +50,9 @@ const Comments = () => {
               <div className='card-body' >
               {
                         taskArray.map((task, index) => {return <div  className=' justify-content-between p-3' key={index}>
-                        <p className='m-0 h5'>{task.text}</p>
-                         <button onClick={() => handlelike(task)} className='btn btn-dark mx-4'>like2</button>
+                        <p className='m-0 h5'>{task.text}</p>    
+                        <MyButton/>         
+                        {/* <MyButton onClick={() => onclick(handleClick)} className='btn btn-primary mx-4'>like</MyButton> */}
                         <button onClick={() => handleDelete(task)} className='btn btn-secondary mx-4'>delete</button>
                         </div> } )
                     }
