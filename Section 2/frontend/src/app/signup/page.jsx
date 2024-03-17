@@ -25,7 +25,7 @@ const Signup = () => {
     onSubmit: (values) => {
       console.log(values);
     },
-   validationSchema: signupSchema
+   validationSchema: signupSchema   //what is this signupSchema
   })
   return (
     <section className="vh-100 bg-primary-subtle">
@@ -65,7 +65,7 @@ const Signup = () => {
                           id="email"
                           onChange={ signupForm.handleChange }
                           values={ signupForm.values.email }
-                          class="form-control"
+                          class="form-control"     //why class not className
                           placeholder=""
                           />
                           {
