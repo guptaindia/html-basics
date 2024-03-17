@@ -15,7 +15,17 @@ const TodoList = () => {
 
         }
     }
-
+    const deleteTask = (index) => {
+        //console.log(index);
+        const temp = taskArray;
+        temp.splice(index, 1);
+        settaskArray([...temp])
+    }
+    const completeTask = (index) => {
+        const temp = taskArray;
+        temp[index].completed =  !temp[index].completed;
+        settaskArray([...temp])
+    }
 
     return (
         <div className='vh-100 bg-primary-subtle'>
@@ -27,9 +37,15 @@ const TodoList = () => {
                     </div>
                     <div className='card-body '>
                     {
-                        taskArray.map((task, index) => {return <div  className='d-flex justify-content-between p-3' key={index}>
-                        <p className='m-0 h5'>{task.text}</p>
-                        <button className='btn btn-danger'>Delete</button>
+                        taskArray.map((task, index) => {return <div  className='d-flex justify-content-between align-items-center p-3' key={index}>
+                        <p className='m-0 h5 w-50'>{task.text}</p>
+                        {
+                            task.completed ? 
+                            <span className='badge text-bg-success'>completed</span>:
+                            <span className='badge text-bg-warning'>pending</span>
+                        }
+                        <button onClick={ () => {completeTask(index)} } className={`btn btn-${task.completed ? 'success' : 'primary'}`}>Completed</button>
+                        <button onClick={ ()  => {deleteTask(index)}} className='btn btn-danger'>Delete</button>
                         </div> } )
                     }
                     </div>
