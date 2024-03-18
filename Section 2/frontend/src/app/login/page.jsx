@@ -1,3 +1,4 @@
+//check for console errors, why class not classname on input section
 'use client'
 import { useFormik } from 'formik';
 import React from 'react'
@@ -9,13 +10,13 @@ const loginSchema = Yup.object().shape({
   .min(3, 'too short').email('sahi wala dalo'),
   password: Yup.string().required('wahi wala dalo bhai')
   .min(8, 'chota hai'),
-})
+});
 const Login = () => {
 
   const loginForm = useFormik({
     initialValues : {
       email : '',
-      password : ''
+      password : '',
     },
     onSubmit: (values) => {
       console.log(values);
@@ -43,38 +44,51 @@ const Login = () => {
                     </label>
                     <input
                       type="text"
-                      //name=""
+                      //name="1223"
                       id="email"
                       onChange={loginForm.handleChange}
                       values={loginForm.values.email}
-                      className="form-control"
+                      class="form-control"
                       placeholder=""
                       aria-describedby="helpId"
                     />
+                    {
+                            loginForm.touched.email && (
+                              <small class='text-danger'>{loginForm.errors.email}</small>
+
+                            )
+                          }
                     <small id="helpId" className="text-muted">
                       Enter registered email address
                     </small>
                   </div>
-                </form>
+                
                 <div className="mb-3">
                   <label htmlFor="" className="form-label">
                     Password
                   </label>
                   <input
-                    type="text"
-                    name=""
-                    id=""
+                    type="password"
+                    //name="8888"
+                    id="password"
                     onChange={loginForm.handleChange}
                       values={loginForm.values.password}
-                    className="form-control"
+                    class="form-control"
                     placeholder=""
                     aria-describedby="helpId"
                   />
+                  {
+                            loginForm.touched.password && (
+                              <small class='text-danger'>{loginForm.errors.password}</small>
+
+                            )
+                          }
                   <small id="helpId" className="text-muted">
                     Enter valid password
                   </small>
                 </div>
-                <button className= {classes.myBtn } >submit</button>
+                <button className= {classes.myBtn } type = 'submit'>submit</button>
+                </form>
               </div>
             </div>
           </div>
