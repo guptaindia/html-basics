@@ -44,7 +44,10 @@ const TodoList = () => {
                             <span className='badge text-bg-success'>completed</span>:
                             <span className='badge text-bg-warning'>pending</span>
                         }
-                        <button onClick={ () => {completeTask(index)} } className={`btn btn-${task.completed ? 'success' : 'primary'}`}>Completed</button>
+                        <button onClick={ () => {completeTask(index)} } className={`btn btn-${task.completed ? 'success' : 'primary'}`}>{
+                            task.completed ? 
+                            'Uncomplete': 'Completed'
+                        }</button>
                         <button onClick={ ()  => {deleteTask(index)}} className='btn btn-danger'>Delete</button>
                         </div> } )
                     }
