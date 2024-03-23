@@ -5,7 +5,7 @@ import React from 'react'
 import * as Yup from 'yup';
 
 const signupSchema = Yup.object().shape({
-  name : Yup.string().required('naam likho gadhe')
+  name : Yup.string().required('naam nhi hai tumhara')
   .min(3, 'too short'),
   email: Yup.string().required('email nhi hai tumhara')
   .email('aisa mail nhi hota').min(4, 'too short'),
@@ -99,13 +99,13 @@ const Signup = () => {
                         <small class="text-muted">Enter Full Name</small>
                       </div>
                       <div class="mb-3">
-                        <label for="" class="form-label">Password</label>
+                        <label for="" className="form-label">Password</label>
                         <input
                           type="password"
                           id="password"
                           onChange={signupForm.handleChange}
                           values = {signupForm.values.password}
-                          class="form-control"
+                          className="form-control"
                           placeholder=""
                         />
                         {
