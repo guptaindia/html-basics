@@ -10,8 +10,13 @@ const signupSchema = Yup.object().shape({
   email: Yup.string().required('email nhi hai tumhara')
   .email('aisa mail nhi hota').min(4, 'too short'),
   password: Yup.string().required('password nhi hai tumhara')
-  .min(8, 'too short'),
+  .min(4, 'too short')
+  .matches(/[a-z]/, 'lower case required')
+  .matches(/[A-Z]/, 'uppercase letter required')
+  .matches(/[\W]/, 'special character required')
+  .matches(/[0-9]/, 'number required'),
   confirmPassword: Yup.string().required('password nhi hai tumhara')
+  .oneOf([Yup.ref('password'), null], 'Passwords must match')
 });
 
 const Signup = () => {
@@ -65,7 +70,7 @@ const Signup = () => {
                           id="email"
                           onChange={ signupForm.handleChange }
                           values={ signupForm.values.email }
-                          class="form-control"     //why class not className
+                          className="form-control"     //why class not className
                           placeholder=""
                           />
                           {
@@ -74,21 +79,21 @@ const Signup = () => {
 
                             )
                           }
-                        <small class="text-muted">Enter Valid Email Address</small>
+                        <small className="text-muted">Enter Valid Email Address</small>
                       </div>
-                      <div class="mb-3">
-                        <label for="" class="form-label">Name</label>
+                      <div className="mb-3">
+                        <label for="" className="form-label">Name</label>
                         <input
                           type="text"
                           id="name"
                           onChange={signupForm.handleChange}
                           values={signupForm.values.name}
-                          class="form-control"
+                          className="form-control"
                           placeholder=""
                         />
                         {
                             signupForm.touched.name && (
-                              <small class='text-danger'>{signupForm.errors.name}</small>
+                              <small className='text-danger'>{signupForm.errors.name}</small>
                             )
                           }
                         <small class="text-muted">Enter Full Name</small>
@@ -127,7 +132,7 @@ const Signup = () => {
 
                             )
                           }
-                        <small class="text-muted">Passwords Must Match</small>
+                        <small className="text-muted">Enter same password</small>
                       </div>
                       <div className="form-check mb-4">
                         <input

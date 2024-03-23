@@ -48,7 +48,7 @@ const Login = () => {
                       id="email"
                       onChange={loginForm.handleChange}
                       values={loginForm.values.email}
-                      class="form-control"
+                      className="form-control"
                       placeholder=""
                       aria-describedby="helpId"
                     />
