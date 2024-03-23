@@ -6,14 +6,20 @@ router.get('/add', (req, res) => {
     res.send('add post response');
 });
 
+// /getall
 router.get('/getall', (req, res) => {
     res.send('get all post response')
 })
 
-// /getall
 // /update
-// /delete
+router.get('/update', (req, res) => {
+    res.send('get updates')
+})
 
+// /delete
+router.get('/delete', (req, res) => {
+    res.send('delete updates')
+})
 //video router
 //user router
 

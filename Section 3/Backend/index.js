@@ -1,6 +1,7 @@
 //import express
 const express = require('express');
 const postRouter = require('./routers/postRouter');
+const videoRouter = require('./routers/videoRouter');
 
 
 // initialize express
@@ -9,8 +10,9 @@ const port = 5000;
 
 //middleware
 app.use('/post', postRouter);
-//app.use('/video', videoRouter);
+app.use('/video', videoRouter);
 
+app.use('/video', videoRouter)
 app.get('/', (req, res) => {
     res.send('response from express');
 })
