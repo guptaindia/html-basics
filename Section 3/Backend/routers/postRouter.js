@@ -2,8 +2,9 @@ const express = require('express');
 
 const router = express.Router();
 
-router.get('/add', (req, res) => {
+router.post('/add', (req, res) => {
     res.send('add post response');
+    console.log(req.body);
 });
 
 // /getall

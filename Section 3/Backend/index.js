@@ -2,13 +2,18 @@
 const express = require('express');
 const postRouter = require('./routers/postRouter');
 const videoRouter = require('./routers/videoRouter');
-
+const cors = require('cors')
 
 // initialize express
 const app = express();
 const port = 5000;
 
-//middleware
+//middleware (data goes through app.use(sequence is also important))
+app.use(cors(
+    {origin:['http://localhost:3000']}
+));
+app.use(express.json())
+
 app.use('/post', postRouter);
 app.use('/video', videoRouter);
 
