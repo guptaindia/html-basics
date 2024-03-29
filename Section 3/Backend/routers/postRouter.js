@@ -1,6 +1,6 @@
 const express = require('express');
 
-const router = express.Router();
+const router = express.Router();//why
 
 router.post('/add', (req, res) => {
     res.send('add post response');
