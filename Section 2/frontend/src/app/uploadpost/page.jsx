@@ -86,7 +86,7 @@ const UploadPost = () => {
 
         </div>
     </div>
-  
+  )
 }
 
-export default UploadPost
+export default UploadPost;

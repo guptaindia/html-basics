@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 
 const TodoList = () => {
-//usestate returns only 2 values fisrt function will read , 2nd funtion will update
+//usestate returns only 2 values first function will read , 2nd funtion will update
     const [taskArray, settaskArray] = useState([]);
 
     const addnewtask = (e) => {

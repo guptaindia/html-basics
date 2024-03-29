@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 const Comments = () => {
   const [taskArray, settaskArray] = useState([]);
   const [count, setCount] = useState(0);
-
+// handles like count for each task
   const handleClick = () => {
     if (count === 1) {
       setCount(count - 1);
