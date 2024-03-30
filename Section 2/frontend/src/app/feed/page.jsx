@@ -35,7 +35,7 @@ const feed = () => {
                 readPostData();
             }
             else{
-                toast.error('error in deletting post');
+                toast.error('error in deleting post');
             }
             
         }).catch((err) => {
@@ -61,6 +61,8 @@ const feed = () => {
                 <div className='card-body'>
                     <h5>{post.title}</h5>
                     <p>{new Date(post.postedOn).toLocaleDateString()}</p>
+                    <button className='btn btn-primary mr-1'>{post.likes} Like</button>
+                    <button className='btn btn-primary mr-1'>{post.shares} shares</button>
                 </div>
                 </div>
             })
