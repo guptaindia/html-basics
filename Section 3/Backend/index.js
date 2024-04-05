@@ -2,6 +2,7 @@
 const express = require('express');
 const postRouter = require('./routers/postRouter');
 const videoRouter = require('./routers/videoRouter');
+//const userRouter =  require('./routers/userRouter')
 const cors = require('cors')
 
 // initialize express
@@ -16,8 +17,10 @@ app.use(express.json())
 
 app.use('/post', postRouter);
 app.use('/video', videoRouter);
+app.use('/user', postRouter);
 
-app.use('/video', videoRouter)
+
+// app.use('/video', videoRouter)
 app.get('/', (req, res) => {
     res.send('response from express');
 })
