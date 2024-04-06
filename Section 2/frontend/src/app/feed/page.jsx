@@ -48,7 +48,7 @@ const feed = () => {
     }
 
     const likePost = (post) => {
-        fetch('http://localhost:5000/post/update' +post._id, {
+        fetch('http://localhost:5000/post/update/' +post._id, {
             method:'PUT',
             body: JSON.stringify({likes: post.likes + 1}),
             headers:{
