@@ -70,7 +70,7 @@ const Signup = () => {
                           id="email"
                           onChange={ signupForm.handleChange }
                           values={ signupForm.values.email }
-                          className="form-control"     //why class not className
+                          className="form-control"     
                           placeholder=""
                           />
                           {
